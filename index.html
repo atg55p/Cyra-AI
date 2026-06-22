@@ -37,9 +37,8 @@ body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(-
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(9,6,15,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.04);transition:border-color .3s}
 nav.lit{border-bottom-color:var(--border)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.logo-mark{width:30px;height:30px;background:linear-gradient(135deg,var(--purp-light),var(--purp-deep));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;flex-shrink:0}
-.logo-text{font-size:16px;font-weight:800;color:var(--t1);letter-spacing:-.3px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo-text{font-size:17px;font-weight:800;color:var(--t1);letter-spacing:-.4px}
 .nav-pill{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:4px 5px}
 .nav-pill a{display:block;padding:7px 16px;font-size:13px;font-weight:500;color:var(--t2);text-decoration:none;border-radius:100px;transition:all .2s;white-space:nowrap}
 .nav-pill a:hover{color:var(--t1);background:rgba(255,255,255,.07)}
@@ -198,15 +197,50 @@ section{position:relative;overflow:hidden}
 .pain-item{display:flex;align-items:flex-start;gap:11px;padding:12px 15px;background:rgba(255,255,255,.02);border:1px solid var(--border2);border-radius:var(--r1);font-size:13.5px;color:var(--t2);transition:all .25s}
 .pain-item:hover{border-color:rgba(146,102,169,.2);color:var(--t1);background:rgba(146,102,169,.04)}
 .x{width:18px;height:18px;border-radius:50%;background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.2);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#FF7A7A;flex-shrink:0;margin-top:1px}
-.sig-stack{display:flex;flex-direction:column;gap:10px}
-.sig{display:flex;align-items:center;gap:14px;padding:15px 18px;background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);transition:all .3s}
-.sig:hover{border-color:var(--border);transform:translateX(4px);box-shadow:0 4px 24px rgba(146,102,169,.08)}
-.sig.hi{border-color:rgba(146,102,169,.22);background:rgba(146,102,169,.045)}
-.sig-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sig-ico svg{width:18px;height:18px;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.sig-body{flex:1}
-.sig-ttl{font-size:12.5px;font-weight:700;color:var(--t1);margin-bottom:3px}
-.sig-sub{font-size:11.5px;color:var(--t3)}
+/* BRE frame */
+.bre-frame{background:rgba(14,9,26,.97);border:1px solid rgba(146,102,169,.22);border-radius:16px;padding:20px;box-shadow:0 0 80px rgba(89,55,109,.14),0 24px 60px rgba(0,0,0,.4)}
+.bre-hdr{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.bre-hdr-icon{width:22px;height:22px;background:rgba(146,102,169,.15);border:1px solid rgba(146,102,169,.28);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bre-hdr-icon svg{width:11px;height:11px;stroke:var(--purp-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bre-hdr-txt{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);flex:1}
+.bre-hdr-dot{width:6px;height:6px;border-radius:50%;background:var(--purp-light);animation:pulse-p 2s infinite}
+/* Noise cards */
+.bre-noise{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.bre-noise-card{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,80,80,.1);background:rgba(255,80,80,.025);opacity:.52}
+.bnc-x{width:16px;height:16px;border-radius:50%;background:rgba(255,80,80,.12);border:1px solid rgba(255,80,80,.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;color:#FF7A7A;flex-shrink:0}
+.bnc-line{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,.06)}
+.bnc-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(255,80,80,.08);color:#FF7A7A;border:1px solid rgba(255,80,80,.15);white-space:nowrap}
+/* Filter sweep line */
+.bre-filter-line{position:relative;display:flex;align-items:center;gap:10px;margin:12px 0;padding:7px 13px;background:rgba(89,55,109,.1);border:1px solid rgba(146,102,169,.3);border-radius:8px;overflow:hidden}
+.bre-filter-line::before{content:'';position:absolute;left:-40%;top:0;bottom:0;width:40%;background:linear-gradient(90deg,transparent,rgba(146,102,169,.22),transparent);animation:bre-sweep 2.8s ease-in-out infinite}
+@keyframes bre-sweep{0%{left:-40%}100%{left:140%}}
+.bfl-ico{width:20px;height:20px;border-radius:5px;background:rgba(146,102,169,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bfl-ico svg{width:10px;height:10px;stroke:var(--purp-light);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bfl-txt{font-size:10.5px;font-weight:700;color:var(--purp-light);letter-spacing:.3px;flex:1}
+.bfl-pulse{width:6px;height:6px;border-radius:50%;background:var(--purp-light);animation:pulse-p 2s infinite}
+/* Signal badges */
+.bre-signals{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.bre-sig{display:flex;align-items:center;gap:5px;padding:5px 10px;background:rgba(146,102,169,.07);border:1px solid rgba(146,102,169,.22);border-radius:100px;font-size:10.5px;font-weight:600;color:var(--purp-pale)}
+.bsig-dot{width:5px;height:5px;border-radius:50%;background:var(--purp-light);flex-shrink:0}
+/* High-intent card */
+.bre-hit{background:rgba(146,102,169,.06);border:1px solid rgba(146,102,169,.28);border-radius:11px;padding:14px 15px;margin-bottom:12px}
+.bre-hit-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.bre-hit-co{font-size:12.5px;font-weight:700;color:var(--t1)}
+.bre-hit-score{display:flex;align-items:baseline;gap:3px}
+.bre-hit-slbl{font-size:9px;font-weight:600;color:var(--t3)}
+.bre-hit-sval{font-size:22px;font-weight:900;color:var(--purp-light);line-height:1}
+.bre-hit-bar{height:4px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.bre-hit-fill{height:100%;background:linear-gradient(90deg,var(--purp-deep),var(--purp-light));border-radius:3px;width:0;animation:bre-fill 1.6s .4s ease forwards}
+@keyframes bre-fill{to{width:94%}}
+.bre-hit-tags{display:flex;gap:5px;flex-wrap:wrap}
+.bre-hit-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(146,102,169,.1);border:1px solid rgba(146,102,169,.2);color:var(--purp-light)}
+/* Value micro-cards */
+.bre-vals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bre-val{padding:10px 12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);border-radius:9px;text-align:center;transition:border-color .25s}
+.bre-val:hover{border-color:rgba(146,102,169,.22)}
+.bv-lbl{font-size:11px;font-weight:700;color:var(--t1);margin-bottom:3px}
+.bv-sub{font-size:9.5px;color:var(--t3);line-height:1.4}
+/* Badge classes (shared) */
 .badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px}
 .tc{background:rgba(146,102,169,.1);border:1px solid rgba(146,102,169,.22);color:var(--purp-light)}
 .tv{background:rgba(109,69,152,.1);border:1px solid rgba(109,69,152,.22);color:#C4A8D8}
@@ -215,16 +249,34 @@ section{position:relative;overflow:hidden}
 /* ── PROBLEM ── */
 #prob{background:var(--bg2)}
 .prob-h{font-size:clamp(34px,4.5vw,56px);font-weight:800;line-height:1.1;letter-spacing:-2px;max-width:820px;margin:0 auto 20px;text-align:center}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:60px}
-.col-card{background:var(--card);border-radius:var(--r3);padding:34px}
-.col-card.noise{border:1px solid rgba(255,80,80,.15)}
-.col-card.rel{border:1px solid rgba(146,102,169,.22);background:rgba(146,102,169,.03)}
-.col-lbl{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:18px}
-.ln{color:#FF6B6B}.lr{color:var(--purp-light)}
-.col-items{list-style:none;display:flex;flex-direction:column;gap:11px}
-.col-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--t2)}
-.d{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.dr{background:#FF6B6B}.dc{background:var(--purp)}
+/* Inbox battle visual */
+.inbox-battle{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;margin-top:52px;align-items:stretch}
+.ib-col{display:flex;flex-direction:column;gap:7px}
+.ib-noise-lbl{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FF6B6B;margin-bottom:10px}
+.ib-signal-lbl{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--purp-light);margin-bottom:10px}
+.ib-msg{padding:11px 14px;border-radius:9px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05)}
+.ib-msg.noise{opacity:.42}
+.ib-msg.signal{border-color:rgba(146,102,169,.25);background:rgba(146,102,169,.05)}
+.ib-msg-nm{font-size:11px;font-weight:700;color:var(--t3);margin-bottom:6px}
+.ib-msg.signal .ib-msg-nm{color:var(--t1)}
+.ib-msg-line{height:7px;background:rgba(255,255,255,.05);border-radius:4px;margin-bottom:4px}
+.ib-msg-line:last-child{width:58%}
+.ib-msg.signal .ib-msg-line{background:rgba(146,102,169,.12)}
+.ib-sig-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:100px;background:rgba(146,102,169,.1);border:1px solid rgba(146,102,169,.22);color:var(--purp-light);font-size:9.5px;font-weight:700;margin-bottom:7px}
+/* Middle filter pillar */
+.ib-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:28px 0}
+.ib-mid-line{flex:1;width:2px;background:linear-gradient(to bottom,transparent,rgba(146,102,169,.3) 30%,rgba(146,102,169,.3) 70%,transparent)}
+.ib-mid-orb{width:38px;height:38px;border-radius:50%;background:rgba(89,55,109,.22);border:1.5px solid rgba(146,102,169,.42);display:flex;align-items:center;justify-content:center;animation:pulse-p 2.5s infinite;flex-shrink:0}
+.ib-mid-orb svg{width:16px;height:16px;stroke:var(--purp-light);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* Factor cards */
+.factors{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:52px}
+.factor{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);padding:22px 16px;transition:all .3s;text-align:center}
+.factor:hover{border-color:var(--border);transform:translateY(-3px);box-shadow:0 16px 32px rgba(0,0,0,.3),0 0 24px rgba(146,102,169,.06)}
+.factor-n{font-size:28px;font-weight:900;color:rgba(146,102,169,.2);line-height:1;margin-bottom:12px;letter-spacing:-1px}
+.factor-t{font-size:13.5px;font-weight:700;color:var(--t1);margin-bottom:8px}
+.factor-b{font-size:12px;color:var(--t3);line-height:1.55}
+/* Prob footer note */
+.prob-note{text-align:center;margin-top:44px;font-size:14px;color:var(--t3);line-height:1.75;max-width:600px;margin-left:auto;margin-right:auto}
 
 /* ── WHAT ── */
 #what{background:var(--bg)}
@@ -349,6 +401,8 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
   .foot-g{grid-template-columns:1fr 1fr}
   .xform{grid-template-columns:1fr}
   .xarr{display:none}
+  .factors{grid-template-columns:repeat(3,1fr)}
+  .inbox-battle{grid-template-columns:1fr 44px 1fr}
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}
@@ -364,8 +418,10 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
   .pain-g1{grid-template-columns:1fr}
   .pain-g2{grid-template-columns:1fr;max-width:100%}
   .val-g{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr}
+  .factors{grid-template-columns:1fr 1fr}
+  .inbox-battle{display:none}
+  .bre-vals{grid-template-columns:1fr}
   .story-card{padding:28px}
   .foot-g{grid-template-columns:1fr}
   .foot-bot{flex-direction:column;gap:10px;text-align:center}
@@ -382,7 +438,6 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">
-    <div class="logo-mark">C</div>
     <span class="logo-text">Cyra AI</span>
   </a>
   <div class="nav-pill">
@@ -633,34 +688,79 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
         <p class="body" style="margin-top:22px;font-size:15px">Cyra AI fixes that by helping you reach the right accounts with the right context, at the right time.</p>
       </div>
       <div class="ai-right">
-        <div class="sig-stack">
-          <div class="sig hi f1">
-            <div class="sig-ico" style="background:rgba(146,102,169,.1);border:1px solid rgba(146,102,169,.22)">
-              <svg viewBox="0 0 24 24" stroke="var(--purp-light)"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+        <div class="bre-frame">
+          <!-- Header -->
+          <div class="bre-hdr">
+            <div class="bre-hdr-icon">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
-            <div class="sig-body"><div class="sig-ttl">Intent Signal Detected</div><div class="sig-sub">SecureCloud · Compliance research spike</div></div>
-            <span class="badge tc">High</span>
+            <span class="bre-hdr-txt">Buyer Relevance Engine</span>
+            <div class="bre-hdr-dot"></div>
           </div>
-          <div class="sig f2">
-            <div class="sig-ico" style="background:rgba(109,69,152,.1);border:1px solid rgba(109,69,152,.22)">
-              <svg viewBox="0 0 24 24" stroke="#C4A8D8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <!-- Noise cards being filtered out -->
+          <div class="bre-noise">
+            <div class="bre-noise-card">
+              <div class="bnc-x">✕</div>
+              <div class="bnc-line"></div>
+              <span class="bnc-tag">Generic</span>
             </div>
-            <div class="sig-body"><div class="sig-ttl">Account Prioritized</div><div class="sig-sub">Nexus Defense · Score 78 · 2 signals</div></div>
-            <span class="badge tv">Medium</span>
+            <div class="bre-noise-card">
+              <div class="bnc-x">✕</div>
+              <div class="bnc-line"></div>
+              <span class="bnc-tag">Low-fit</span>
+            </div>
+            <div class="bre-noise-card">
+              <div class="bnc-x">✕</div>
+              <div class="bnc-line"></div>
+              <span class="bnc-tag">No timing</span>
+            </div>
           </div>
-          <div class="sig f3">
-            <div class="sig-ico" style="background:rgba(76,217,123,.07);border:1px solid rgba(76,217,123,.2)">
-              <svg viewBox="0 0 24 24" stroke="#4CD97B"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+          <!-- Filter line -->
+          <div class="bre-filter-line">
+            <div class="bfl-ico">
+              <svg viewBox="0 0 24 24"><polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"/></svg>
             </div>
-            <div class="sig-body"><div class="sig-ttl">Outreach Personalized</div><div class="sig-sub">Message generated with buying context</div></div>
-            <span class="badge tg">Sent</span>
+            <span class="bfl-txt">Relevance Engine Active</span>
+            <div class="bfl-pulse"></div>
           </div>
-          <div class="sig f4">
-            <div class="sig-ico" style="background:rgba(146,102,169,.07);border:1px solid rgba(146,102,169,.14)">
-              <svg viewBox="0 0 24 24" stroke="var(--purp-light)"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <!-- Signal badges -->
+          <div class="bre-signals">
+            <div class="bre-sig"><div class="bsig-dot"></div>Compliance Research</div>
+            <div class="bre-sig"><div class="bsig-dot"></div>Security Hiring</div>
+            <div class="bre-sig"><div class="bsig-dot"></div>Pricing Signal</div>
+            <div class="bre-sig"><div class="bsig-dot"></div>Funding Round</div>
+            <div class="bre-sig"><div class="bsig-dot"></div>Tool Comparison</div>
+          </div>
+          <!-- High-intent account -->
+          <div class="bre-hit">
+            <div class="bre-hit-top">
+              <span class="bre-hit-co">SecureCloud Systems</span>
+              <div class="bre-hit-score">
+                <span class="bre-hit-slbl">Score&nbsp;</span>
+                <span class="bre-hit-sval">94</span>
+              </div>
             </div>
-            <div class="sig-body"><div class="sig-ttl">Reply Received</div><div class="sig-sub">"This is actually relevant timing for us…"</div></div>
-            <span class="badge tg">Interested</span>
+            <div class="bre-hit-bar"><div class="bre-hit-fill"></div></div>
+            <div class="bre-hit-tags">
+              <span class="bre-hit-tag">SOC2 Deadline</span>
+              <span class="bre-hit-tag">4 Open Roles</span>
+              <span class="bre-hit-tag">Pricing Visit</span>
+            </div>
+          </div>
+          <!-- Value micro-cards -->
+          <div class="bre-vals">
+            <div class="bre-val">
+              <div class="bv-lbl">Better Timing</div>
+              <div class="bv-sub">Reach them when they're evaluating</div>
+            </div>
+            <div class="bre-val">
+              <div class="bv-lbl">Better Context</div>
+              <div class="bv-sub">Messages built on real signals</div>
+            </div>
+            <div class="bre-val">
+              <div class="bv-lbl">Better Conversations</div>
+              <div class="bv-sub">High-intent replies that move forward</div>
+            </div>
           </div>
         </div>
       </div>
@@ -677,30 +777,93 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       <h2 class="prob-h">If your messaging sounds like everyone else, it gets ignored like everyone else.</h2>
       <p class="body" style="max-width:560px;margin:0 auto;text-align:center">Cybersecurity buyers are not looking for more noise. They are looking for relevance, timing, credibility, and a reason to pay attention.</p>
     </div>
-    <div class="two-col ai d2">
-      <div class="col-card noise">
-        <div class="col-lbl ln">✕ Noise — What they ignore</div>
-        <ul class="col-items">
-          <li class="col-item"><span class="d dr"></span>Generic cold outreach with no context</li>
-          <li class="col-item"><span class="d dr"></span>Vague value props that could fit any buyer</li>
-          <li class="col-item"><span class="d dr"></span>Wrong timing — pitching before the need exists</li>
-          <li class="col-item"><span class="d dr"></span>Low-effort personalization ("I saw your LinkedIn…")</li>
-          <li class="col-item"><span class="d dr"></span>Mass sequences with zero differentiation</li>
-          <li class="col-item"><span class="d dr"></span>No awareness of buyer's current priorities</li>
-        </ul>
+
+    <!-- Inbox battle visual -->
+    <div class="inbox-battle ai d2">
+      <!-- Noise column -->
+      <div class="ib-col">
+        <div class="ib-noise-lbl">✕ &nbsp;Inbox Noise</div>
+        <div class="ib-msg noise">
+          <div class="ib-msg-nm">Generic SDR Sequence</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
+        <div class="ib-msg noise">
+          <div class="ib-msg-nm">Mass Campaign Blast</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
+        <div class="ib-msg noise">
+          <div class="ib-msg-nm">Spray-and-Pray Outreach</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
       </div>
-      <div class="col-card rel">
-        <div class="col-lbl lr">✓ Relevance — What they engage with</div>
-        <ul class="col-items">
-          <li class="col-item"><span class="d dc"></span>Outreach tied to real buying signals and intent</li>
-          <li class="col-item"><span class="d dc"></span>Messages that reflect their specific business context</li>
-          <li class="col-item"><span class="d dc"></span>Right timing — reaching out when they're evaluating</li>
-          <li class="col-item"><span class="d dc"></span>High-context personalization that shows understanding</li>
-          <li class="col-item"><span class="d dc"></span>Precision targeting with fit-first qualification</li>
-          <li class="col-item"><span class="d dc"></span>Credibility established before the first conversation</li>
-        </ul>
+      <!-- Middle filter pillar -->
+      <div class="ib-mid">
+        <div class="ib-mid-line"></div>
+        <div class="ib-mid-orb">
+          <svg viewBox="0 0 24 24"><polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"/></svg>
+        </div>
+        <div class="ib-mid-line"></div>
+      </div>
+      <!-- Signal column -->
+      <div class="ib-col">
+        <div class="ib-signal-lbl">✓ &nbsp;Relevant Signal</div>
+        <div class="ib-msg signal">
+          <div class="ib-sig-tag"><span style="color:var(--purp-light)">●</span> SOC2 Deadline Approaching</div>
+          <div class="ib-msg-nm">SecureCloud Systems</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
+        <div class="ib-msg signal">
+          <div class="ib-sig-tag"><span style="color:var(--purp-light)">●</span> 4 Security Roles Open</div>
+          <div class="ib-msg-nm">Nexus Defense Tech</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
+        <div class="ib-msg signal">
+          <div class="ib-sig-tag"><span style="color:var(--purp-light)">●</span> Series B Closed</div>
+          <div class="ib-msg-nm">Vertex Risk Partners</div>
+          <div class="ib-msg-line"></div>
+          <div class="ib-msg-line"></div>
+        </div>
       </div>
     </div>
+
+    <!-- 5 factor cards -->
+    <div class="factors">
+      <div class="factor ai">
+        <div class="factor-n">01</div>
+        <div class="factor-t">Relevance</div>
+        <div class="factor-b">Does the message reflect what the buyer actually cares about right now?</div>
+      </div>
+      <div class="factor ai d1">
+        <div class="factor-n">02</div>
+        <div class="factor-t">Timing</div>
+        <div class="factor-b">Are you reaching them when they're actively evaluating a solution?</div>
+      </div>
+      <div class="factor ai d2">
+        <div class="factor-n">03</div>
+        <div class="factor-t">Credibility</div>
+        <div class="factor-b">Do you have the signal awareness to be taken seriously in this market?</div>
+      </div>
+      <div class="factor ai d3">
+        <div class="factor-n">04</div>
+        <div class="factor-t">Specificity</div>
+        <div class="factor-b">Is the message tailored to this account or could it go to anyone?</div>
+      </div>
+      <div class="factor ai d4">
+        <div class="factor-n">05</div>
+        <div class="factor-t">Reason to Act</div>
+        <div class="factor-b">Have you given them a clear reason why now is the right moment?</div>
+      </div>
+    </div>
+
+    <p class="prob-note ai d2">Cyra AI is built for cybersecurity vendors who know outreach has to be sharper than average to cut through the noise in this market.</p>
   </div>
 </section>
 
@@ -957,7 +1120,6 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
     <div class="foot-g">
       <div>
         <a href="#" class="logo" style="margin-bottom:14px;display:inline-flex">
-          <div class="logo-mark">C</div>
           <span class="logo-text">Cyra AI</span>
         </a>
         <p class="foot-desc">AI-powered outbound for cybersecurity vendors. Launching and running your first repeatable outbound motion, so growth becomes predictable and consistent.</p>
