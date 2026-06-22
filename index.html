@@ -84,20 +84,43 @@ section{position:relative;overflow:hidden}
 .ai-right.show{opacity:1;transform:none}
 
 /* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-top:64px;background:var(--bg);position:relative}
-#c{position:absolute;inset:0;pointer-events:none}
-.hero-center{max-width:680px;margin:0 auto;text-align:center;padding:76px 20px 0;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 10px;background:rgba(146,102,169,.1);border:1px solid rgba(146,102,169,.22);border-radius:100px;font-size:12px;font-weight:600;color:var(--purp-light);letter-spacing:.2px;margin-bottom:26px}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--purp);flex-shrink:0;animation:pulse-p 2s infinite}
-@keyframes pulse-p{0%,100%{box-shadow:0 0 0 0 rgba(146,102,169,.55)}60%{box-shadow:0 0 0 5px rgba(146,102,169,0)}}
-.hero-h{font-size:clamp(32px,4.2vw,52px);font-weight:800;line-height:1.1;letter-spacing:-1.8px;color:var(--t1);margin-bottom:18px}
-.hero-sub{font-size:15.5px;color:var(--t2);line-height:1.72;margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-top:64px;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(89,55,109,.26) 0%,transparent 66%),var(--bg);position:relative}
+.hero-glow{position:absolute;pointer-events:none;border-radius:50%}
+.hero-glow-a{width:740px;height:740px;top:-200px;left:50%;margin-left:-370px;background:radial-gradient(circle,rgba(89,55,109,.19) 0%,transparent 58%);animation:glow-a 9s ease-in-out infinite}
+.hero-glow-b{width:380px;height:380px;top:26%;left:3%;background:radial-gradient(circle,rgba(146,102,169,.08) 0%,transparent 70%);animation:glow-bc 11s ease-in-out infinite 2.5s}
+.hero-glow-c{width:330px;height:330px;top:14%;right:2%;background:radial-gradient(circle,rgba(89,55,109,.07) 0%,transparent 70%);animation:glow-bc 13s ease-in-out infinite 5.5s}
+@keyframes glow-a{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes glow-bc{0%,100%{opacity:.38;transform:scale(1)}50%{opacity:.82;transform:scale(1.11)}}
+.hero-scan{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.hero-scan::after{content:'';position:absolute;left:0;right:0;height:240px;background:linear-gradient(to bottom,transparent,rgba(146,102,169,.03),transparent);animation:scan-sweep 15s linear infinite}
+@keyframes scan-sweep{from{top:-240px}to{top:calc(100% + 240px)}}
+#c{position:absolute;inset:0;pointer-events:none;z-index:1}
+.hero-center{max-width:700px;margin:0 auto;text-align:center;padding:88px 20px 0;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 10px;background:rgba(89,55,109,.13);border:1px solid rgba(146,102,169,.3);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--purp-pale);letter-spacing:.4px;margin-bottom:28px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--purp-light);flex-shrink:0;animation:pulse-p 2s infinite}
+@keyframes pulse-p{0%,100%{box-shadow:0 0 0 0 rgba(146,102,169,.65)}60%{box-shadow:0 0 0 7px rgba(146,102,169,0)}}
+.hero-h{font-size:clamp(34px,4.6vw,58px);font-weight:800;line-height:1.06;letter-spacing:-2.2px;color:var(--t1);margin-bottom:20px}
+.hero-sub{font-size:15.5px;color:var(--t2);line-height:1.74;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
 .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+/* ── HERO STRIP (internal carousel) ── */
+.hero-strip{width:100%;overflow:hidden;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.04);flex-shrink:0}
+.hero-strip::before,.hero-strip::after{content:'';position:absolute;top:0;bottom:0;width:160px;z-index:3;pointer-events:none}
+.hero-strip::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.hero-strip::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.hstrip-track{display:flex;width:max-content;animation:hmarquee 34s linear infinite;padding:20px 0}
+.hstrip-track:hover{animation-play-state:paused}
+@keyframes hmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hstrip-item{display:flex;align-items:center;gap:10px;padding:0 30px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.055)}
+.hstrip-ico{width:28px;height:28px;background:rgba(89,55,109,.14);border:1px solid rgba(146,102,169,.22);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hstrip-ico svg{width:13px;height:13px;stroke:var(--purp-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hstrip-txt{font-size:12.5px;font-weight:600;color:var(--t2);white-space:nowrap}
 
 /* Hero dashboard */
 .hero-dash{width:100%;max-width:1080px;margin:52px auto 0;padding:0 20px;position:relative;z-index:2;flex-shrink:0}
 .hero-dash::after{content:'';position:absolute;bottom:0;left:0;right:0;height:110px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:3}
-.dash-frame{background:rgba(14,9,26,.97);border:1px solid rgba(146,102,169,.18);border-radius:16px;overflow:hidden;box-shadow:0 0 100px rgba(146,102,169,.1),0 40px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05)}
+.dash-frame{background:rgba(14,9,26,.97);border:1px solid rgba(146,102,169,.2);border-radius:16px;overflow:hidden;box-shadow:0 0 120px rgba(89,55,109,.14),0 0 60px rgba(146,102,169,.08),0 40px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.055);position:relative}
+.dash-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(146,102,169,.5),rgba(203,174,210,.6),rgba(146,102,169,.5),transparent);animation:dash-scan-h 6s ease-in-out infinite;z-index:10;pointer-events:none}
+@keyframes dash-scan-h{0%,100%{opacity:0;transform:scaleX(.3)}30%,70%{opacity:1;transform:scaleX(1)}}
 .dash-chrome{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02)}
 .d-dots{display:flex;gap:6px}
 .d-dot{width:9px;height:9px;border-radius:50%}
@@ -334,8 +357,9 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
   .nav-right{display:none}
   .hamburger{display:flex}
   .sp{padding:80px 0}
-  .hero-center{padding:60px 20px 0}
+  .hero-center{padding:66px 20px 0}
   .hero-dash{display:none}
+  .hero-glow-b,.hero-glow-c{display:none}
   .caps{grid-template-columns:1fr}
   .pain-g1{grid-template-columns:1fr}
   .pain-g2{grid-template-columns:1fr;max-width:100%}
@@ -392,7 +416,11 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
 <!-- HERO -->
 <section id="hero">
   <canvas id="c"></canvas>
-  <div class="grid-bg" style="opacity:.3"></div>
+  <div class="grid-bg" style="opacity:.2"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-glow hero-glow-a"></div>
+  <div class="hero-glow hero-glow-b"></div>
+  <div class="hero-glow hero-glow-c"></div>
 
   <!-- Centered headline block -->
   <div class="hero-center ai">
@@ -401,7 +429,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       AI-powered outbound for cybersecurity vendors
     </div>
     <h1 class="hero-h">Turn security buyer signals into<br><span class="grad">qualified pipeline</span>.</h1>
-    <p class="hero-sub">Cyra AI helps cybersecurity vendors identify high-fit accounts, detect buying intent, and launch relevant outbound that earns attention.</p>
+    <p class="hero-sub">Cyra AI helps cybersecurity vendors find high-fit accounts, detect buying intent, and start relevant conversations.</p>
     <div class="hero-btns">
       <a href="#cta" class="btn btn-p btn-lg">Book a Demo</a>
       <a href="#cta" class="btn btn-s btn-lg">See Cyra AI in Action</a>
@@ -532,6 +560,25 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
         <span class="df-stat"><span>3</span> accounts active · <span>4</span> signals detected · AI confidence <span>94%</span></span>
         <div class="df-badge"><div class="df-badge-dot"></div>Outbound motion running</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Impact strip carousel -->
+  <div class="hero-strip">
+    <div class="hstrip-track">
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div><span class="hstrip-txt">Higher-quality buyer engagement</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="hstrip-txt">More relevant conversations</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span class="hstrip-txt">Faster account prioritization</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="hstrip-txt">Less wasted outreach</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="hstrip-txt">Repeatable outbound for security vendors</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg></div><span class="hstrip-txt">Signal-driven account intelligence</span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div><span class="hstrip-txt">Higher-quality buyer engagement</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="hstrip-txt">More relevant conversations</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span class="hstrip-txt">Faster account prioritization</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="hstrip-txt">Less wasted outreach</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="hstrip-txt">Repeatable outbound for security vendors</span></div>
+      <div class="hstrip-item"><div class="hstrip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg></div><span class="hstrip-txt">Signal-driven account intelligence</span></div>
     </div>
   </div>
 
