@@ -308,9 +308,7 @@ section{position:relative;overflow:hidden}
 .svc-body{font-size:16px;color:var(--t2);line-height:1.75;max-width:600px;margin:16px auto 0;text-align:center}
 
 /* ── PAIN (Premium) ── */
-#pain{background:#05030A;height:500vh;position:relative}
-#pain-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#05030A;display:flex;flex-direction:column;padding:52px 0 24px;box-sizing:border-box}
-#pain-sticky>.wrap{flex:1;display:flex;flex-direction:column;min-height:0;position:relative;z-index:2}
+#pain{background:#05030A;padding:140px 0;position:relative;overflow:hidden}
 .pain-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(225,211,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(225,211,235,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .pain-bg-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1100px;height:600px;background:radial-gradient(ellipse,rgba(89,55,109,.28) 0%,transparent 68%);pointer-events:none}
 .pain-sdot{position:absolute;border-radius:50%;background:rgba(166,120,200,.45);pointer-events:none}
@@ -319,29 +317,22 @@ section{position:relative;overflow:hidden}
 .pain-sdot-3{width:3px;height:3px;top:72%;left:24%;animation:sdot-a 7s ease-in-out infinite 4s}
 .pain-sdot-4{width:2px;height:2px;top:58%;left:68%;animation:sdot-a 13s ease-in-out infinite 1s}
 @keyframes sdot-a{0%,100%{opacity:.2;transform:translate(0,0)}50%{opacity:.7;transform:translate(6px,-8px)}}
-.pain-hdr{text-align:center;margin-bottom:18px;position:relative;z-index:2;flex-shrink:0}
+.pain-hdr{text-align:center;margin-bottom:72px;position:relative;z-index:2}
 .pain-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E1D3EB;margin-bottom:22px}
 .pain-eyebrow::before{content:'';width:18px;height:1.5px;background:rgba(225,211,235,.5);display:block}
-.pain-h2{font-size:clamp(22px,3vw,36px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;color:#F7F3FA;max-width:760px;margin:0 auto 10px}
-.pain-desc{font-size:14.5px;color:#A99BB5;line-height:1.62;max-width:580px;margin:0 auto}
-.pcards-wrap{flex:1;position:relative;min-height:0}
-.pcards{position:absolute;inset:0}
-.pcard{background:#100A1D;border:1px solid rgba(225,211,235,.10);border-radius:26px;overflow:hidden;position:absolute;top:0;bottom:0;left:50%;width:940px;max-width:calc(100% - 32px);display:grid;grid-template-columns:1fr 1fr;opacity:0;transform:translateX(-50%) translateY(28px) scale(.97);transition:opacity .62s cubic-bezier(.25,.46,.45,.94),transform .62s cubic-bezier(.25,.46,.45,.94);pointer-events:none}
-.pcard.active{opacity:1;transform:translateX(-50%) translateY(0) scale(1);pointer-events:auto}
-.pcard.past{opacity:0;transform:translateX(-50%) translateY(-18px) scale(.98)}
-.pcard:not(.active) *{animation-play-state:paused!important}
-.pcard-vis{height:100%;background:#0B0712;position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.04)}
+.pain-h2{font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.09;letter-spacing:-2px;color:#F7F3FA;max-width:820px;margin:0 auto 18px}
+.pain-desc{font-size:17px;color:#A99BB5;line-height:1.72;max-width:680px;margin:0 auto}
+.pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;position:relative;z-index:2}
+.pcard{background:#100A1D;border:1px solid rgba(225,211,235,.10);border-radius:26px;overflow:hidden;transition:transform .3s cubic-bezier(.25,.46,.45,.94),border-color .3s ease,box-shadow .3s ease;position:relative}
+.pcard:hover{border-color:rgba(166,120,200,.45);transform:translateY(-6px);box-shadow:0 0 70px rgba(89,55,109,.32),0 32px 64px rgba(0,0,0,.5)}
+.pcard-vis{height:280px;background:#0B0712;position:relative;overflow:hidden}
 .pcard-vis-fade{position:absolute;bottom:0;left:0;right:0;height:72px;background:linear-gradient(to bottom,transparent,#100A1D);z-index:20;pointer-events:none}
-.pcard-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center}
+.pcard-body{padding:24px 28px 30px}
 .pcard-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;background:rgba(89,55,109,.14);border:1px solid rgba(166,120,200,.22);border-radius:100px;margin-bottom:15px}
 .pcard-badge svg{width:12px;height:12px;stroke:#A678C8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .pcard-badge-txt{font-size:10.5px;font-weight:700;color:#A678C8;letter-spacing:.6px;text-transform:uppercase}
-.pcard-title{font-size:26px;font-weight:800;color:#FFFFFF;letter-spacing:-.5px;margin-bottom:12px;line-height:1.18}
-.pcard-desc{font-size:15.5px;color:#A99BB5;line-height:1.65;max-width:340px}
-.pain-progress{display:flex;justify-content:center;align-items:center;gap:10px;padding-top:14px;flex-shrink:0;position:relative;z-index:2}
-.pain-dot{width:7px;height:7px;border-radius:50%;background:rgba(166,120,200,.18);border:1px solid rgba(166,120,200,.28);transition:all .35s;cursor:pointer}
-.pain-dot.active{background:#A678C8;box-shadow:0 0 10px rgba(166,120,200,.4);transform:scale(1.35);border-color:#A678C8}
-.pain-counter{text-align:center;font-size:11px;font-weight:700;color:rgba(225,211,235,.28);letter-spacing:1px;padding-top:6px;flex-shrink:0;position:relative;z-index:2}
+.pcard-title{font-size:22px;font-weight:800;color:#FFFFFF;letter-spacing:-.4px;margin-bottom:10px;line-height:1.2}
+.pcard-desc{font-size:15px;color:#A99BB5;line-height:1.65}
 /* Card 1 — Inbox */
 .p1-wrap{padding:20px 20px 0;display:flex;flex-direction:column;gap:7px;position:relative;height:100%}
 .p1-scan{position:absolute;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(166,120,200,.55),transparent);top:-2px;animation:p1-sweep 5.5s linear infinite;z-index:15;pointer-events:none}
@@ -565,17 +556,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
   .hero-dash{display:none}
   .hero-glow-b,.hero-glow-c{display:none}
   .caps{grid-template-columns:1fr}
-  #pain{height:auto}
-  #pain-sticky{position:relative;height:auto;padding:80px 0}
-  #pain-sticky>.wrap{display:block;flex:none}
-  .pcards-wrap{height:auto}
-  .pcards{position:relative;inset:auto;display:flex;flex-direction:column;gap:20px}
-  .pcard{position:relative;top:auto;bottom:auto;left:auto;width:100%;max-width:100%;opacity:1;transform:none;pointer-events:auto;display:block}
-  .pcard.past,.pcard.active{opacity:1;transform:none}
-  .pcard-vis{height:240px}
-  .pcard-body{padding:22px 24px 26px;justify-content:flex-start}
-  .pcard:not(.active) *{animation-play-state:running!important}
-  .pain-progress,.pain-counter{display:none}
+  .pcards{grid-template-columns:1fr}
   .val-g{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr}
   .factors{grid-template-columns:1fr 1fr}
@@ -1085,7 +1066,6 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
 
 <!-- PAIN -->
 <section id="pain">
-  <div id="pain-sticky">
   <div class="pain-bg-grid"></div>
   <div class="pain-bg-glow"></div>
   <div class="pain-sdot pain-sdot-1"></div>
@@ -1098,11 +1078,10 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       <h2 class="pain-h2">Built Around the Realities Cybersecurity Vendors Live With.</h2>
       <p class="pain-desc">Security buyers are selective, crowded categories are noisy, and generic outbound is easy to ignore. Cyra AI helps vendors move with better relevance, timing, and context.</p>
     </div>
-    <div class="pcards-wrap">
     <div class="pcards">
 
       <!-- Card 1: Buyers Are Selective -->
-      <div class="pcard">
+      <div class="pcard ai">
         <div class="pcard-vis">
           <div class="p1-wrap">
             <div class="p1-scan"></div>
@@ -1146,7 +1125,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       </div>
 
       <!-- Card 2: Timing Is Everything -->
-      <div class="pcard">
+      <div class="pcard ai d1">
         <div class="pcard-vis">
           <div class="p2-wrap">
             <div class="p2-tl-container">
@@ -1183,7 +1162,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       </div>
 
       <!-- Card 3: Competition Is Loud -->
-      <div class="pcard">
+      <div class="pcard ai d2">
         <div class="pcard-vis">
           <div class="p3-wrap">
             <div class="p3-bg">
@@ -1218,7 +1197,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       </div>
 
       <!-- Card 4: Manual Research -->
-      <div class="pcard">
+      <div class="pcard ai d3">
         <div class="pcard-vis">
           <div class="p4-wrap">
             <div class="p4-top">
@@ -1265,16 +1244,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       </div>
 
     </div>
-    </div><!-- /pcards-wrap -->
-    <div class="pain-progress">
-      <div class="pain-dot"></div>
-      <div class="pain-dot"></div>
-      <div class="pain-dot"></div>
-      <div class="pain-dot"></div>
-    </div>
-    <div class="pain-counter"><span id="pain-num">01</span>&nbsp;/&nbsp;04</div>
   </div>
-  </div><!-- /pain-sticky -->
 </section>
 
 <!-- USE CASE -->
@@ -1592,51 +1562,6 @@ const secObs=new IntersectionObserver(entries=>{
   });
 },{threshold:.4});
 sections.forEach(s=>secObs.observe(s));
-
-// Pain Points sticky scroll
-(function(){
-  var sec=document.getElementById('pain');
-  var cards=sec?sec.querySelectorAll('.pcard'):[];
-  var dots=sec?sec.querySelectorAll('.pain-dot'):[];
-  var numEl=document.getElementById('pain-num');
-  var last=-1;
-  function activate(i){
-    if(i===last)return;
-    last=i;
-    cards.forEach(function(c,j){
-      var wasActive=c.classList.contains('active');
-      c.classList.remove('active','past');
-      if(j===i){
-        if(!wasActive){
-          c.querySelectorAll('.p4-row,.p4-bar-fill').forEach(function(el){
-            el.style.animation='none';void el.offsetWidth;el.style.animation='';
-          });
-        }
-        c.classList.add('active');
-      }else if(j<i) c.classList.add('past');
-    });
-    dots.forEach(function(d,j){d.classList.toggle('active',j===i)});
-    if(numEl)numEl.textContent=('0'+(i+1)).slice(-2);
-  }
-  function update(){
-    if(!sec||!cards.length)return;
-    if(window.innerWidth<=768){activate(0);return}
-    var r=sec.getBoundingClientRect(),h=sec.scrollHeight-window.innerHeight;
-    if(h<=0){activate(0);return}
-    var p=Math.max(0,Math.min(1,-r.top/h));
-    activate(Math.min(Math.floor(p*cards.length),cards.length-1));
-  }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update,{passive:true});
-  update();
-  dots.forEach(function(d,i){
-    d.addEventListener('click',function(){
-      if(!sec)return;
-      var t=sec.offsetTop,h=sec.scrollHeight-window.innerHeight;
-      window.scrollTo({top:t+(i/cards.length)*h+1,behavior:'smooth'});
-    });
-  });
-})();
 </script>
 </body>
 </html>
