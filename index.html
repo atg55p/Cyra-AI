@@ -571,9 +571,158 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
   .flow{flex-direction:column;align-items:center}
   .flow-arr{transform:rotate(90deg)}
 }
+
+/* ── DEMO MODAL ── */
+#demo-overlay{position:fixed;inset:0;background:rgba(5,3,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+#demo-overlay.open{opacity:1;pointer-events:auto}
+#demo-modal{background:#0E0A1A;border:1px solid rgba(146,102,169,.24);border-radius:22px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(24px) scale(.97);transition:transform .36s cubic-bezier(.25,.46,.45,.94),opacity .36s;scrollbar-width:thin;scrollbar-color:rgba(146,102,169,.25) transparent}
+#demo-modal::-webkit-scrollbar{width:4px}
+#demo-modal::-webkit-scrollbar-track{background:transparent}
+#demo-modal::-webkit-scrollbar-thumb{background:rgba(146,102,169,.25);border-radius:4px}
+#demo-overlay.open #demo-modal{transform:none}
+.dm-head{padding:26px 26px 0;position:sticky;top:0;background:#0E0A1A;z-index:2;border-radius:22px 22px 0 0;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.dm-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);font-size:15px;transition:all .2s;line-height:1;font-family:inherit}
+.dm-close:hover{background:rgba(146,102,169,.18);border-color:rgba(146,102,169,.4);color:var(--t1)}
+.dm-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--purp-light);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.dm-eyebrow::before{content:'';width:14px;height:1.5px;background:var(--purp-light);display:block;opacity:.7}
+.dm-title{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-.4px;margin-bottom:5px}
+.dm-sub{font-size:13.5px;color:var(--t2);line-height:1.5}
+.dm-body{padding:22px 26px 26px}
+.dm-field{margin-bottom:16px}
+.dm-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t3);margin-bottom:7px;display:flex;align-items:center;gap:4px}
+.dm-req{color:var(--purp-light)}
+.dm-input,.dm-select,.dm-textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(146,102,169,.18);border-radius:10px;padding:10px 13px;font-size:13.5px;color:var(--t1);font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+.dm-input::placeholder,.dm-textarea::placeholder{color:var(--t3)}
+.dm-input:focus,.dm-select:focus,.dm-textarea:focus{border-color:rgba(146,102,169,.52);box-shadow:0 0 0 3px rgba(146,102,169,.09)}
+.dm-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A7090' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;background-color:rgba(255,255,255,.04)}
+.dm-select option{background:#0E0A1A;color:var(--t1)}
+.dm-textarea{resize:vertical;min-height:82px;line-height:1.55}
+.dm-phone-row{display:flex;gap:8px}
+.dm-phone-cc{width:100px;flex-shrink:0}
+.dm-phone-num{flex:1}
+.dm-checks{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.dm-check-lbl{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12.5px;color:var(--t2);line-height:1.5;user-select:none}
+.dm-check-lbl input[type=checkbox]{appearance:none;-webkit-appearance:none;width:15px;height:15px;min-width:15px;border:1.5px solid rgba(146,102,169,.35);border-radius:4px;background:transparent;cursor:pointer;margin-top:1.5px;position:relative;transition:all .2s;flex-shrink:0}
+.dm-check-lbl input[type=checkbox]:checked{background:var(--purp);border-color:var(--purp)}
+.dm-check-lbl input[type=checkbox]:checked::after{content:'';position:absolute;left:3px;top:1px;width:7px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.dm-submit{width:100%;padding:13px;background:linear-gradient(135deg,var(--purp),var(--purp-deep));border:none;border-radius:11px;font-size:14.5px;font-weight:700;color:#fff;cursor:pointer;transition:all .25s;letter-spacing:.2px;font-family:inherit;box-shadow:0 4px 18px rgba(109,69,152,.3)}
+.dm-submit:hover{background:linear-gradient(135deg,var(--purp-light),var(--purp));transform:translateY(-1px);box-shadow:0 8px 28px rgba(146,102,169,.38)}
+.dm-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.dm-success{text-align:center;padding:36px 20px;display:none}
+.dm-success.show{display:block}
+.dm-form-wrap.hide{display:none}
+.dm-suc-ico{width:56px;height:56px;background:rgba(146,102,169,.12);border:1px solid rgba(146,102,169,.28);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.dm-suc-ico svg{width:24px;height:24px;stroke:var(--purp-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dm-suc-title{font-size:22px;font-weight:800;color:var(--t1);letter-spacing:-.3px;margin-bottom:10px}
+.dm-suc-sub{font-size:14px;color:var(--t2);line-height:1.65}
 </style>
 </head>
 <body>
+
+<!-- DEMO MODAL -->
+<div id="demo-overlay" role="dialog" aria-modal="true" aria-labelledby="dm-title-el">
+  <div id="demo-modal">
+    <div class="dm-head">
+      <button class="dm-close" id="dm-close" aria-label="Close">✕</button>
+      <div class="dm-eyebrow">Get Started</div>
+      <div class="dm-title" id="dm-title-el">Book a Demo</div>
+      <p class="dm-sub">See how Cyra AI turns buying signals into qualified conversations.</p>
+    </div>
+    <div class="dm-body">
+      <div class="dm-success" id="dm-success">
+        <div class="dm-suc-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="dm-suc-title">You're Booked!</div>
+        <p class="dm-suc-sub">We've received your request and will be in touch shortly to schedule your demo.</p>
+      </div>
+      <div class="dm-form-wrap" id="dm-form-wrap">
+        <form id="dm-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="924efe82-9e43-470c-8c8d-2b3db622b89e">
+          <input type="hidden" name="subject" value="New Demo Request — Cyra AI">
+          <input type="hidden" name="from_name" value="Cyra AI Website">
+          <input type="checkbox" name="botcheck" style="display:none">
+          <div class="dm-field">
+            <label class="dm-label" for="dm-name">Full Name</label>
+            <input id="dm-name" class="dm-input" type="text" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-email">Work Email</label>
+            <input id="dm-email" class="dm-input" type="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-phone">Phone Number</label>
+            <div class="dm-phone-row">
+              <select class="dm-select dm-phone-cc" name="phone_country" aria-label="Country code">
+                <option value="+1">US +1</option>
+                <option value="+44">UK +44</option>
+                <option value="+1ca">CA +1</option>
+                <option value="+61">AU +61</option>
+                <option value="+49">DE +49</option>
+                <option value="+33">FR +33</option>
+                <option value="+91">IN +91</option>
+                <option value="+65">SG +65</option>
+                <option value="+971">AE +971</option>
+              </select>
+              <input id="dm-phone" class="dm-input dm-phone-num" type="tel" name="phone" placeholder="(555) 000-0000">
+            </div>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-seniority">Seniority <span class="dm-req">*</span></label>
+            <select id="dm-seniority" class="dm-select" name="seniority" required>
+              <option value="" disabled selected>Please select</option>
+              <option>Founder / C-Suite</option>
+              <option>VP / Director</option>
+              <option>Manager</option>
+              <option>Individual Contributor</option>
+            </select>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-co-size">Company Size <span class="dm-req">*</span></label>
+            <select id="dm-co-size" class="dm-select" name="company_size" required>
+              <option value="" disabled selected>Please select</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-sales-size">Sales Team Size</label>
+            <select id="dm-sales-size" class="dm-select" name="sales_team_size">
+              <option value="" disabled selected>Please select</option>
+              <option>Just me</option>
+              <option>2–5</option>
+              <option>6–15</option>
+              <option>16–50</option>
+              <option>50+</option>
+            </select>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-source">How Did You Hear About Us?</label>
+            <select id="dm-source" class="dm-select" name="source">
+              <option value="" disabled selected>Please select</option>
+              <option>LinkedIn</option>
+              <option>Google</option>
+              <option>Word of mouth</option>
+              <option>Event / Conference</option>
+              <option>Newsletter</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="dm-field">
+            <label class="dm-label" for="dm-msg">Message</label>
+            <textarea id="dm-msg" class="dm-textarea" name="message" placeholder="Briefly describe your needs..."></textarea>
+          </div>
+          <div class="dm-checks">
+            <label class="dm-check-lbl"><input type="checkbox" name="sms_updates"><span>I consent to receive account updates via SMS</span></label>
+            <label class="dm-check-lbl"><input type="checkbox" name="sms_marketing"><span>I consent to receive marketing offers via SMS</span></label>
+          </div>
+          <button type="submit" class="dm-submit">Book My Demo</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -588,8 +737,8 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
     <a href="#vals">Value</a>
   </div>
   <div class="nav-right">
-    <a href="#cta" class="btn btn-s">See it in Action</a>
-    <a href="#cta" class="btn btn-p">Book a Demo</a>
+    <a href="#" class="btn btn-s" data-demo>See it in Action</a>
+    <a href="#" class="btn btn-p" data-demo>Book a Demo</a>
   </div>
   <div class="hamburger" id="ham">
     <span></span><span></span><span></span>
@@ -604,8 +753,8 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
     <li><a href="#story">Case Study</a></li>
     <li><a href="#vals">Value</a></li>
   </ul>
-  <a href="#cta" class="btn btn-p">Book a Demo</a>
-  <a href="#cta" class="btn btn-s" style="margin-top:8px">See it in Action</a>
+  <a href="#" class="btn btn-p" data-demo>Book a Demo</a>
+  <a href="#" class="btn btn-s" style="margin-top:8px" data-demo>See it in Action</a>
 </div>
 
 <!-- HERO -->
@@ -626,8 +775,8 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
     <h1 class="hero-h">Turn Security Buyer Signals Into<br><span class="grad">Qualified Pipeline</span>.</h1>
     <p class="hero-sub">Cyra AI helps cybersecurity vendors find high-fit accounts, detect buying intent, and start relevant conversations.</p>
     <div class="hero-btns">
-      <a href="#cta" class="btn btn-p btn-lg">Book a Demo</a>
-      <a href="#cta" class="btn btn-s btn-lg">See Cyra AI in Action</a>
+      <a href="#" class="btn btn-p btn-lg" data-demo>Book a Demo</a>
+      <a href="#" class="btn btn-s btn-lg" data-demo>See Cyra AI in Action</a>
     </div>
   </div>
 
@@ -1412,8 +1561,8 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
       <h2 class="cta-h">Your Next Security Buyer<br>Is Already <span class="grad">Signaling</span>.</h2>
       <p class="cta-sub">Cyra AI helps cybersecurity vendors identify them, engage them, and convert them into pipeline.</p>
       <div class="cta-btns">
-        <a href="#" class="btn btn-p btn-lg">Book a Demo</a>
-        <a href="#" class="btn btn-s btn-lg">See Cyra AI in Action</a>
+        <a href="#" class="btn btn-p btn-lg" data-demo>Book a Demo</a>
+        <a href="#" class="btn btn-s btn-lg" data-demo>See Cyra AI in Action</a>
       </div>
     </div>
   </div>
@@ -1428,7 +1577,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:60px 0 3
           <span class="logo-text">Cyra AI</span>
         </a>
         <p class="foot-desc">AI-powered outbound for cybersecurity vendors. Launching and running your first repeatable outbound motion, so growth becomes predictable and consistent.</p>
-        <a href="#cta" class="btn btn-p" style="font-size:13px;padding:10px 20px">Book a Demo</a>
+        <a href="#" class="btn btn-p" style="font-size:13px;padding:10px 20px" data-demo>Book a Demo</a>
       </div>
       <div>
         <div class="foot-col-t">Product</div>
@@ -1562,6 +1711,43 @@ const secObs=new IntersectionObserver(entries=>{
   });
 },{threshold:.4});
 sections.forEach(s=>secObs.observe(s));
+
+// Demo modal
+(function(){
+  var overlay=document.getElementById('demo-overlay');
+  var modal=document.getElementById('demo-modal');
+  var closeBtn=document.getElementById('dm-close');
+  var form=document.getElementById('dm-form');
+  var formWrap=document.getElementById('dm-form-wrap');
+  var success=document.getElementById('dm-success');
+  function openModal(){
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    modal.scrollTop=0;
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('[data-demo]').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();openModal();});
+  });
+  closeBtn.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('.dm-submit');
+    btn.textContent='Sending…';btn.disabled=true;
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.success){formWrap.classList.add('hide');success.classList.add('show');}
+        else{btn.textContent='Book My Demo';btn.disabled=false;alert('Something went wrong. Please try again.');}
+      })
+      .catch(function(){btn.textContent='Book My Demo';btn.disabled=false;alert('Network error. Please try again.');});
+  });
+})();
 </script>
 </body>
 </html>
